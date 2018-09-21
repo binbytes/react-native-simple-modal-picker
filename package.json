@@ -1,0 +1,34 @@
+{
+  "name": "react-native-simple-modal-picker",
+  "version": "0.1.0",
+  "description": "Simple Picker/DropDown/Chooser/Selector for React Native",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/binbytes/react-native-simple-modal-picker.git"
+  },
+  "keywords": [
+    "react-native",
+    "react",
+    "picker",
+    "modal-picker",
+    "dropdown",
+    "chooser",
+    "selector",
+    "modal-selector",
+    "modal-dropdown"
+  ],
+  "author": "Bhavik Charola <bhavikcharola@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/binbytes/react-native-simple-modal-picker/issues"
+  },
+  "homepage": "https://github.com/binbytes/react-native-simple-modal-picker#readme",
+  "dependencies": {
+    "prop-types": "^15.6.2",
+    "react": "^16.4.2"
+  }
+}
