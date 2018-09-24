@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
 
 ```
 
-![Simple](https://github.com/binbytes/react-native-simple-modal-picker/blob/master/screenshot/simple.gif)
+![Simple](https://github.com/binbytes/react-native-simple-modal-picker/blob/master/screenshot/simple.gif?raw=true)
 
 #### Modal Picker with Custom Row
 
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
 
 ```
 
-![Custom](https://github.com/binbytes/react-native-simple-modal-picker/blob/master/screenshot/custom.gif)
+![Custom](https://github.com/binbytes/react-native-simple-modal-picker/blob/master/screenshot/custom.gif?raw=true)
 
 #### DropDown View
 
@@ -164,4 +164,4 @@ const styles = StyleSheet.create({
 
 ```
 
-![DropDown](https://github.com/binbytes/react-native-simple-modal-picker/blob/master/screenshot/dropdown.gif)
+![DropDown](https://github.com/binbytes/react-native-simple-modal-picker/blob/master/screenshot/dropdown.gif?raw=true)
