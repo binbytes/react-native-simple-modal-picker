@@ -18,100 +18,7 @@ Easy to use and fully customized modal picker for both iOS and Android. Have sam
 
 ## Usage
 
-For simple modal picker example
-
-```js
-import React, {Component} from 'react';
-import {StyleSheet, Text, View, Button, TouchableOpacity} from 'react-native';
-import Picker from 'react-native-simple-modal-picker';
-
-export default class Example extends Component {
-  constructor(props){
-    super(props)
-    this.state={
-      selectedIndex: 0
-    }
-    this.data=[
-      {
-        name:'Option 1',
-        value: '1'
-      },
-      {
-        name:'Option 2',
-        value: '2'
-      },
-      {
-        name:'Option 3',
-        value: '3'
-      },
-      {
-        name:'Option 4',
-        value: '4'
-      },
-      {
-        name:'Option 5',
-        value: '5'
-      }
-    ]
-  }
-
-  render() {
-    return (
-      <View style={styles.container}>
-        {this.simplePickerView()}
-        {this.customRowPickerView()}
-        {this.dropDownView()}
-      </View>
-    );
-  }
-
-  simplePickerView(){
-    return(
-      <View>
-        <Picker 
-          ref={instance => this.simplePicker = instance} 
-          data={this.data} 
-          label={'name'} 
-          value={'value'}
-          onValueChange={(value) => alert(value + ' selected')} />
-
-        <View style={styles.subContainer}>
-          <Button 
-            title={'Open Simple Picker'} 
-            onPress={() => this.simplePicker.setModalVisible(true)} />
-        </View>
-      </View>
-    )
-  }
-
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  subContainer:{
-    margin: 8
-  },
-  rowStyle:{
-    backgroundColor: '#FFF',
-    color: '#333',
-    padding: 8,
-    fontSize: 20
-  },
-  dropDownContainer:{
-    borderBottomWidth: 1,
-    padding: 8
-  },
-  dropDownText:{
-    fontSize: 20,
-    margin: 8
-  }
-});
-
-```
+Here full [example](https://github.com/binbytes/react-native-simple-modal-picker/tree/master/example) of package usage
 
 #### Simple Modal Picker
 
@@ -126,7 +33,7 @@ const styles = StyleSheet.create({
 
 ```
 
-![Simple](https://github.com/binbytes/react-native-simple-modal-picker/blob/master/screenshot/simple.gif?raw=true)
+![Simple](https://i.imgur.com/xcriwIC.gif)
 
 #### Modal Picker with Custom Row
 
@@ -142,7 +49,7 @@ const styles = StyleSheet.create({
 
 ```
 
-![Custom](https://github.com/binbytes/react-native-simple-modal-picker/blob/master/screenshot/custom.gif?raw=true)
+![Custom](https://i.imgur.com/NSZ0NfW.gif)
 
 #### DropDown View
 
@@ -164,4 +71,4 @@ const styles = StyleSheet.create({
 
 ```
 
-![DropDown](https://github.com/binbytes/react-native-simple-modal-picker/blob/master/screenshot/dropdown.gif?raw=true)
+![DropDown](https://i.imgur.com/rPTVTh6.gif)
