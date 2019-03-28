@@ -21,6 +21,12 @@ export default class ModalPicker extends Component {
     };
   }
 
+  componentWillReceiveProps( nextProps ) {
+    this.setState({
+        dataSource: this.state.dataSource.cloneWithRows( nextProps.data )
+    });
+  }
+
   setModalVisible(visible) {
     this.setState({ modalVisible: visible });
   }
