@@ -5,7 +5,8 @@ import {
   TouchableHighlight,
   View,
   StyleSheet,
-  ListView
+  ListView,
+  YellowBox
 } from "react-native";
 import PropTypes from "prop-types";
 
@@ -19,6 +20,7 @@ export default class ModalPicker extends Component {
       dataSource: ds.cloneWithRows(this.props.data),
       modalVisible: false
     };
+    YellowBox.ignoreWarnings(['ListView is deprecated']);
   }
 
   componentWillReceiveProps( nextProps ) {
