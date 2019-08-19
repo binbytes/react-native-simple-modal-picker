@@ -5,10 +5,10 @@ import {
   TouchableHighlight,
   View,
   StyleSheet,
-  ListView,
   YellowBox
 } from "react-native";
 import PropTypes from "prop-types";
+import ListView from "deprecated-react-native-listview"
 
 export default class ModalPicker extends Component {
   constructor(props) {
