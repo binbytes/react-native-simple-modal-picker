@@ -29,6 +29,7 @@
   "homepage": "https://github.com/binbytes/react-native-simple-modal-picker#readme",
   "dependencies": {
     "prop-types": "^15.6.2",
-    "react": "^16.4.2"
+    "react": "^16.4.2",
+    "deprecated-react-native-listview":"*"
   }
 }
