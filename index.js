@@ -5,10 +5,11 @@ import {
   TouchableHighlight,
   View,
   StyleSheet,
-  YellowBox
+  YellowBox,
+  FlatList
 } from "react-native";
 import PropTypes from "prop-types";
-import ListView from "deprecated-react-native-listview"
+import ListView from "deprecated-react-native-listview";
 
 export default class ModalPicker extends Component {
   constructor(props) {
@@ -20,13 +21,13 @@ export default class ModalPicker extends Component {
       dataSource: ds.cloneWithRows(this.props.data),
       modalVisible: false
     };
-    YellowBox.ignoreWarnings(['ListView is deprecated']);
+    YellowBox.ignoreWarnings(["ListView is deprecated"]);
   }
 
-  componentWillReceiveProps( nextProps ) {
-    if(this.state.dataSource != nextProps.dataSource) {
+  componentWillReceiveProps(nextProps) {
+    if (this.state.dataSource != nextProps.dataSource) {
       this.setState({
-        dataSource: this.state.dataSource.cloneWithRows( nextProps.data )
+        dataSource: this.state.dataSource.cloneWithRows(nextProps.data)
       });
     }
   }
@@ -36,6 +37,7 @@ export default class ModalPicker extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <View
         style={{
@@ -58,27 +60,19 @@ export default class ModalPicker extends Component {
             underlayColor={"#333333cc"}
           >
             <View>
-              <ListView
-                dataSource={this.state.dataSource}
-                renderRow={(rowData, sectionID, rowID, higlightRow) => {
-                  return (
-                    <TouchableHighlight
-                      underlayColor={"transparent"}
-                      onPress={() => {
-                        this.setModalVisible(false);
-                        this.props.onValueChange(rowData[this.props.value], rowID);
-                      }}
-                    >
-                      {this.props.renderRow ? (
-                        this.props.renderRow(rowData, rowID)
-                      ) : (
-                        <Text style={styles.itemText}>
-                          {rowData[this.props.label]}
-                        </Text>
-                      )}
-                    </TouchableHighlight>
-                  );
-                }}
+              <FlatList
+                data={this.props.data}
+                renderItem={({ item: { name, value } }) => (
+                  <TouchableHighlight
+                    underlayColor={"transparent"}
+                    onPress={() => {
+                      this.setModalVisible(false);
+                      this.props.onValueChange(value);
+                    }}
+                  >
+                    <Text style={styles.itemText}>{name}</Text>
+                  </TouchableHighlight>
+                )}
               />
             </View>
           </TouchableHighlight>
