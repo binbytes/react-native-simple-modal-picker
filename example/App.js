@@ -49,7 +49,7 @@ export default class Example extends Component {
           data={this.data} 
           label={'name'} 
           value={'value'}
-          onValueChange={(value) => alert(value + ' selected')} />
+          onValueChange={(value) => console.log(value + ' selected')} />
 
         <View style={styles.subContainer}>
           <Button 
@@ -68,11 +68,11 @@ export default class Example extends Component {
           data={this.data} 
           label={'name'} 
           value={'value'}
-          onValueChange={(value) => alert(value + ' selected')}
+          onValueChange={(value) => console.log(value + ' selected')}
           renderRow={(rowData) => <Text style={styles.rowStyle}>{rowData.name}</Text>} />
         <View style={styles.subContainer}>
           <Button 
-            title={'Open Cutome Row Picker'} 
+            title={'Open Cutomer Row Picker'} 
             onPress={() => this.customRowPicker.setModalVisible(true)} />
         </View>
       </View>
@@ -87,7 +87,7 @@ export default class Example extends Component {
           data={this.data} 
           label={'name'} 
           value={'value'}
-          onValueChange={(value, selectedIndex) => this.setState({selectedIndex})} />
+          onValueChange={(_, selectedIndex) => this.setState({selectedIndex})} />
         <View style={styles.subContainer}>
           <TouchableOpacity style={styles.dropDownContainer} onPress={() => this.dropDownPicker.setModalVisible(true)}>
             <Text style={styles.dropDownText}>{this.data[this.state.selectedIndex].name}</Text>
