@@ -5,30 +5,25 @@ import {
   TouchableHighlight,
   View,
   StyleSheet,
-  ListView,
-  YellowBox
+  FlatList
 } from "react-native";
 import PropTypes from "prop-types";
+
 
 export default class ModalPicker extends Component {
   constructor(props) {
     super(props);
-    const ds = new ListView.DataSource({
-      rowHasChanged: (r1, r2) => r1 !== r2
-    });
     this.state = {
-      dataSource: ds.cloneWithRows(this.props.data),
       modalVisible: false
     };
-    YellowBox.ignoreWarnings(['ListView is deprecated']);
   }
 
-  componentWillReceiveProps( nextProps ) {
-    if(this.state.dataSource != nextProps.dataSource) {
-      this.setState({
-        dataSource: this.state.dataSource.cloneWithRows( nextProps.data )
-      });
+  static getDerivedStateFromProps(props, state) {
+    if (state.data === props.data) {
+      return null;
     }
+
+    return { data: props.data };
   }
 
   setModalVisible(visible) {
@@ -58,22 +53,23 @@ export default class ModalPicker extends Component {
             underlayColor={"#333333cc"}
           >
             <View>
-              <ListView
-                dataSource={this.state.dataSource}
-                renderRow={(rowData, sectionID, rowID, higlightRow) => {
+              <FlatList
+                data={this.state.data}
+                keyExtractor={(_, index) => index.toString()} 
+                renderItem={({ item, index }) => {
                   return (
                     <TouchableHighlight
                       underlayColor={"transparent"}
                       onPress={() => {
                         this.setModalVisible(false);
-                        this.props.onValueChange(rowData[this.props.value], rowID);
+                        this.props.onValueChange(item[this.props.value], index);
                       }}
                     >
                       {this.props.renderRow ? (
-                        this.props.renderRow(rowData, rowID)
+                        this.props.renderRow(item, index)
                       ) : (
                         <Text style={styles.itemText}>
-                          {rowData[this.props.label]}
+                          {item[this.props.label]}
                         </Text>
                       )}
                     </TouchableHighlight>
